@@ -20,6 +20,10 @@
   <arg name="ir"               default="ir" />
   <arg name="depth"            default="depth" />
 
+  <!-- Machine -->
+  <machine name="localhost" address="localhost" env-loader="/opt/ros/hydro/env.sh"/>
+  <arg name="machine"          default="localhost" />
+
   <!-- Optionally suppress loading the driver nodelet and/or publishing the default tf
        tree. Useful if you are playing back recorded raw data from a bag, or are
        supplying a more accurate tf tree from calibration. -->
@@ -35,6 +39,7 @@
   <include file="$(find openni2_launch)/launch/includes/manager.launch">
     <arg name="name" value="$(arg manager)" />
     <arg name="debug" value="$(arg debug)" />
+    <arg name="machine" value="$(arg machine)" />
   </include>
 
   <!-- Push down all topics/nodelets into "camera" namespace -->
