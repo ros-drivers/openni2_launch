@@ -2,6 +2,14 @@
 Changelog for package openni2_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add tf_prefix same as openni
+* Fix issue `#9 <https://github.com/ros-drivers/openni2_launch/issues/9>`_
+  This way the defaults for depth processing are set apropriately for both
+  hardware and software registration.
+* Contributors: Libor Wagner, Mark Pitchless, Michael Ferguson
+
 0.1.2 (2013-09-30)
 ------------------
 * Expose driver parameters. Note: depth_registration is now off by default.
