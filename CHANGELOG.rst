@@ -2,8 +2,8 @@
 Changelog for package openni2_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.3 (2014-05-07)
+------------------
 * Add tf_prefix same as openni
 * Fix issue `#9 <https://github.com/ros-drivers/openni2_launch/issues/9>`_
   This way the defaults for depth processing are set apropriately for both
