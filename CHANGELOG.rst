@@ -2,6 +2,11 @@
 Changelog for package openni2_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Force device_id to string type
+* Contributors: Dariush Forouher
+
 0.1.3 (2014-05-07)
 ------------------
 * Add tf_prefix same as openni
