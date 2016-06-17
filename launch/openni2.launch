@@ -7,6 +7,9 @@
   <arg name="rgb_frame_id"   default="$(arg camera)_rgb_optical_frame" />
   <arg name="depth_frame_id" default="$(arg camera)_depth_optical_frame" />
 
+  <!-- for machine tag -->
+  <arg name="machine" default="localhost" />
+
   <!-- device_id can have the following formats:
          "#1"  : the first device found
          "2@X" : the Xth device on USB bus 2 -->
@@ -62,6 +65,7 @@
 	  <arg name="manager" value="$(arg camera)_nodelet_manager" />
 	  <arg name="debug" default="false" /> <!-- Run manager in GDB? -->
 	  <include file="$(find rgbd_launch)/launch/includes/manager.launch.xml">
+            <arg name="machine" value="$(arg machine)" />
 	    <arg name="name" value="$(arg manager)" />
 	    <arg name="debug" value="$(arg debug)" />
 	    <arg name="num_worker_threads"  value="$(arg num_worker_threads)" />
@@ -70,6 +74,7 @@
     <!-- Load driver -->
     <include if="$(arg load_driver)"
 	     file="$(find openni2_launch)/launch/includes/device.launch.xml">
+      <arg name="machine" value="$(arg machine)" />
       <arg name="manager"                         value="$(arg manager)" />
       <arg name="device_id"                       value="$(arg device_id)" />
       <arg name="rgb_frame_id"                    value="$(arg rgb_frame_id)" />
@@ -88,6 +93,7 @@
 
     <!-- Load standard constellation of processing nodelets -->
     <include file="$(find rgbd_launch)/launch/includes/processing.launch.xml">
+      <arg name="machine" value="$(arg machine)" />
       <arg name="manager"                         value="$(arg manager)" />
       <arg name="rgb"                             value="$(arg rgb)" />
       <arg name="ir"                              value="$(arg ir)" />
@@ -109,6 +115,7 @@
   <!-- Load reasonable defaults for the relative pose between cameras -->
   <include if="$(arg publish_tf)"
 	   file="$(find rgbd_launch)/launch/kinect_frames.launch">
+    <arg name="machine" value="$(arg machine)" />
     <arg name="camera" value="$(arg camera)" />
   </include>
 
