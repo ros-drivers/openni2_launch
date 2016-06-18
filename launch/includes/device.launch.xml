@@ -4,6 +4,9 @@
   <!-- Name of nodelet manager, must be fully resolved -->
   <arg name="manager" />
 
+  <!-- For machine tag -->
+  <arg name="machine" default="localhost" />
+
   <!-- Driver parameters -->
   <arg name="device_id" />
   <arg name="rgb_frame_id" />
@@ -27,7 +30,8 @@
   <!-- Driver nodelet -->
   <node pkg="nodelet" type="nodelet" name="driver"
         args="load openni2_camera/OpenNI2DriverNodelet $(arg manager)"
-	    respawn="$(arg respawn)">
+        respawn="$(arg respawn)"
+        machine="$(arg machine)">
     <param name="device_id" type="str" value="$(arg device_id)" />
     <param name="rgb_camera_info_url"   value="$(arg rgb_camera_info_url)" />
     <param name="depth_camera_info_url" value="$(arg depth_camera_info_url)" />
